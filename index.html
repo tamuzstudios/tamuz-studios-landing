@@ -490,7 +490,7 @@
 
     
 <script>
-    // Smooth transition for buttons
+    // Transición suave al hacer clic en botones y enlaces
     document.querySelectorAll('button, a').forEach(el => {
         el.addEventListener('mousedown', () => {
             el.classList.add('scale-95', 'opacity-80');
@@ -507,53 +507,52 @@
 <!-- Scripts de Lenis con soporte para el botón de inicio -->
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script> 
 <script>
-  // Inicializa el scroll inercial
-  const lenis = new Lenis({
-    duration: 1.2,   
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-    smoothWheel: true
-  });
-
-  // Intercepta los enlaces internos (#work, #services)
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId !== '#') {
-        e.preventDefault();
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          lenis.scrollTo(targetElement);
-        }
-      }
+    // Inicializa el scroll inercial (Lenis)
+    const lenis = new Lenis({
+        duration: 1.2,   
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+        smoothWheel: true
     });
-  });
 
-  // --- LÓGICA DEL BOTÓN "SUBIR AL INICIO" ---
-  const toTopBtn = document.getElementById('to-top-btn');
-
-  lenis.on('scroll', (e) => {
-    // Si el usuario baja más de 400 píxeles, el botón aparece de forma fluida
-    if (e.scroll > 400) {
-      toTopBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-      toTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-    } else {
-      toTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-      toTopBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+    // Bucle de animación obligatorio para Lenis
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
     }
-  });
-
-  // Al hacer clic, Lenis ejecuta un scroll inercial hacia el punto 0 (el inicio)
-  toTopBtn.addEventListener('click', () => {
-    lenis.scrollTo(0);
-  });
-  // ------------------------------------------
-
-  function raf(time) {
-    lenis.raf(time);
     requestAnimationFrame(raf);
-  }
 
-  requestAnimationFrame(raf);
-</script> 
+    // Intercepta los enlaces internos (#work, #services) para scroll suave con Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                lenis.scrollTo(targetElement);
+            }
+        });
+    });
+
+    // Lógica interactiva para el Botón Flotante (To Top)
+    const toTopBtn = document.getElementById('to-top-btn');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            // Muestra el botón de manera fluida
+            toTopBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            toTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        } else {
+            // Oculta el botón
+            toTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            toTopBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+        }
+    });
+
+    toTopBtn.addEventListener('click', () => {
+        lenis.scrollTo(0, { duration: 1.2 });
+    });
+</script>
 </body>
 </html>
