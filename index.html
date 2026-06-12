@@ -130,7 +130,23 @@
         }
         html {
             scroll-behavior: smooth;
-        }		
+        }
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Opcional: Si quieres que el comportamiento de scroll respete 
+   las preferencias de usuarios que desactivan animaciones en su sistema */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+        
     </style>
 </head>
 <body class="font-body-md text-body-md antialiased selection:bg-brand-purple selection:text-white">
