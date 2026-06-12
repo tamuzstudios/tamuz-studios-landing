@@ -484,20 +484,6 @@
 </button>
 
     
-<script>
-    // Transición suave al hacer clic en botones y enlaces
-    document.querySelectorAll('button, a').forEach(el => {
-        el.addEventListener('mousedown', () => {
-            el.classList.add('scale-95', 'opacity-80');
-        });
-        el.addEventListener('mouseup', () => {
-            el.classList.remove('scale-95', 'opacity-80');
-        });
-        el.addEventListener('mouseleave', () => {
-            el.classList.remove('scale-95', 'opacity-80');
-        });
-    });
-</script>
 
 <!-- Scripts de Lenis con soporte para el botón de inicio -->
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script> 
@@ -515,18 +501,14 @@
         requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-</script>
 
-
-<script>
-    
     // Intercepta los enlaces internos (#work, #services) para scroll suave con Lenis
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
             
-            e.preventDefault();
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 lenis.scrollTo(targetElement);
@@ -534,24 +516,23 @@
         });
     });
 
-    // Lógica interactiva para el Botón Flotante (To Top)
+    // Lógica para mostrar/ocultar y dar funcionalidad al botón "To Top"
     const toTopBtn = document.getElementById('to-top-btn');
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 400) {
-            // Muestra el botón de manera fluida
             toTopBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
             toTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
         } else {
-            // Oculta el botón
-            toTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
             toTopBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            toTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
         }
     });
 
     toTopBtn.addEventListener('click', () => {
-        lenis.scrollTo(0, { duration: 1.2 });
+        lenis.scrollTo(0);
     });
 </script>
+
 </body>
 </html>
