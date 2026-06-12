@@ -455,6 +455,13 @@
     </div>
 </footer>
 
+
+<!-- Botón Flotante para subir al inicio -->
+<button id="to-top-btn" class="fixed bottom-8 right-8 z-50 bg-brand-purple text-white p-4 rounded-xl border border-white/10 shadow-[0_0_30px_rgba(147,51,234,0.2)] opacity-0 translate-y-4 pointer-events-none transition-all duration-500 hover:bg-on-primary-fixed-variant flex items-center justify-center">
+    <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
+    
 <script>
     // Smooth transition for buttons
     document.querySelectorAll('button, a').forEach(el => {
@@ -470,17 +477,17 @@
     });
 </script>
 
-<!-- Scripts de Lenis optimizados -->
+<!-- Scripts de Lenis con soporte para el botón de inicio -->
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script> 
 <script>
-  // Inicializa el scroll inercial premium
+  // Inicializa el scroll inercial
   const lenis = new Lenis({
     duration: 1.2,   
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
     smoothWheel: true
   });
 
-  // Intercepta los enlaces internos (#work, #services) para que Lenis haga el scroll smoothly por JS
+  // Intercepta los enlaces internos (#work, #services)
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
@@ -494,12 +501,32 @@
     });
   });
 
+  // --- LÓGICA DEL BOTÓN "SUBIR AL INICIO" ---
+  const toTopBtn = document.getElementById('to-top-btn');
+
+  lenis.on('scroll', (e) => {
+    // Si el usuario baja más de 400 píxeles, el botón aparece de forma fluida
+    if (e.scroll > 400) {
+      toTopBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+      toTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+    } else {
+      toTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      toTopBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+    }
+  });
+
+  // Al hacer clic, Lenis ejecuta un scroll inercial hacia el punto 0 (el inicio)
+  toTopBtn.addEventListener('click', () => {
+    lenis.scrollTo(0);
+  });
+  // ------------------------------------------
+
   function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
   }
 
   requestAnimationFrame(raf);
-</script>    
+</script> 
 </body>
 </html>
