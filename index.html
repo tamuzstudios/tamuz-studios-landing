@@ -130,16 +130,16 @@
         }
 
 
-html {
-  scroll-behavior: smooth;
+/* Reemplaza tu bloque de html por este mejorado */
+html, body {
+    scroll-behavior: smooth !important;
 }
 
-/* Opcional: Si quieres que el comportamiento de scroll respete 
-   las preferencias de usuarios que desactivan animaciones en su sistema */
+/* Mantiene el respeto a las preferencias del sistema del usuario */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+    html, body {
+        scroll-behavior: auto !important;
+    }
 }
 
 
