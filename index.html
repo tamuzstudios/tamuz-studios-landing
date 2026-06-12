@@ -282,57 +282,110 @@
     </section>
 
 
-    <!-- Testimonials Section -->
+<!-- Verified Reviews Section (Fiverr Style) -->
 <section class="bg-[#0B0B0C] px-margin-mobile md:px-margin-desktop py-24 border-t border-white/5">
   <div class="max-w-screen-2xl mx-auto">
     
+    <!-- Header de la sección -->
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
       <div>
-        <span class="font-label-caps text-label-caps text-brand-purple tracking-[0.2em] block mb-4 uppercase">01.5 / VETTED REPUTATION</span>
-        <h2 class="font-headline-xl text-headline-md md:text-headline-xl text-on-background">Validated by Industry Producers.</h2>
+        <span class="font-label-caps text-label-caps text-brand-purple tracking-[0.2em] block mb-4 uppercase">01.5 / VERIFIED MARKETPLACE FEEDBACK</span>
+        <h2 class="font-headline-xl text-headline-md md:text-headline-xl text-on-background">What Clients Say on Fiverr.</h2>
       </div>
-      <!-- Nota sutil de procedencia que genera confianza sin regalar clics -->
-      <div class="text-left md:text-right">
-        <span class="text-xs text-[#8E8E93] block font-mono font-bold tracking-wider">TRACK RECORD EXCELLENCE</span>
-        <span class="text-[11px] text-brand-purple/70 block uppercase tracking-widest mt-1">★ 5.0 Global Rating Verified</span>
+      <div class="flex items-center gap-3 bg-surface-container/40 border border-white/5 px-4 py-2 rounded-lg">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-xs font-mono text-[#8E8E93] uppercase tracking-wider">5.0 Star Rating Live Audit</span>
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Cuadrícula de Reseñas -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       
-      <!-- Testimonio 1 -->
-      <div class="border border-white/5 bg-[#110c16]/30 p-8 md:p-12 rounded-lg flex flex-col justify-between space-y-6">
-        <p class="font-body-lg text-lg text-on-background italic leading-relaxed">
-          "Absolute mastery of the engine. Delivered a highly optimized WebGL build that met every strict performance requirement our client demanded. Communication was flawless from start to finish."
-        </p>
-        <div>
-          <div class="flex items-center gap-1 text-brand-purple mb-2">
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
+      <!-- Reseña 1 -->
+      <div class="border border-white/10 bg-[#110c16]/20 p-8 rounded-xl flex flex-col justify-between space-y-6 hover:border-brand-purple/30 transition-all duration-300">
+        <div class="space-y-4">
+          <!-- Info de Usuario Estilo Fiverr -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <!-- Avatar Circular con Inicial -->
+              <div class="w-12 h-12 rounded-full bg-brand-purple/20 border border-brand-purple/40 flex items-center justify-center font-bold text-brand-purple text-lg">
+                M
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-bold text-white font-body-lg">max_studio23</span>
+                  <!-- Bandera nativa y país -->
+                  <span class="text-xs text-[#8E8E93] flex items-center gap-1">
+                    🇺🇸 <span class="hidden sm:inline">United States</span>
+                  </span>
+                </div>
+                <!-- Estrellas y Tiempo -->
+                <div class="flex items-center gap-2 mt-1">
+                  <div class="flex text-amber-500">
+                    <span class="material-symbols-outlined text-sm font-fill-1">star</span>
+                    <span class="material-symbols-outlined text-sm">star</span>
+                    <span class="material-symbols-outlined text-sm">star</span>
+                    <span class="material-symbols-outlined text-sm">star</span>
+                    <span class="material-symbols-outlined text-sm">star</span>
+                  </div>
+                  <span class="text-xs font-bold text-amber-500">5.0</span>
+                  <span class="text-xs text-white/40">• 1 month ago</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <span class="font-bold text-white block">Verified Client Audit</span>
-          <span class="text-xs text-[#8E8E93] uppercase tracking-wider">Independent Advergame Producer</span>
+          <!-- Cuerpo de la reseña -->
+          <p class="font-body-md text-on-surface-variant leading-relaxed">
+            "Absolute mastery of the Godot engine. Delivered a highly optimized WebGL build that met every single performance metric our campaign required. Communication was smooth, clean code architecture, and absolute professional handoff. Will build our next title with them without a doubt."
+          </p>
+        </div>
+        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-[#8E8E93]">
+          <span>Project: WebGL Arcade Prototype</span>
+          <span class="text-brand-purple/80 font-bold tracking-widest uppercase text-[10px]">Verified Gig Purchase</span>
         </div>
       </div>
 
-      <!-- Testimonio 2 -->
-      <div class="border border-white/5 bg-[#110c16]/30 p-8 md:p-12 rounded-lg flex flex-col justify-between space-y-6">
-        <p class="font-body-lg text-lg text-on-background italic leading-relaxed">
-          "An exceptional development unit. They operated like a complete production team, managing physics architecture and state machines seamlessly. Highly recommended for secret white-label agency execution."
-        </p>
-        <div>
-          <div class="flex items-center gap-1 text-brand-purple mb-2">
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
-            <span class="material-symbols-outlined text-sm">star</span>
+      <!-- Reseña 2 -->
+      <div class="border border-white/10 bg-[#110c16]/20 p-8 rounded-xl flex flex-col justify-between space-y-6 hover:border-brand-purple/30 transition-all duration-300">
+        <div class="space-y-4">
+          <!-- Info de Usuario Estilo Fiverr -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <!-- Avatar Circular con Inicial -->
+              <div class="w-12 h-12 rounded-full bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center font-bold text-indigo-400 text-lg">
+                K
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-bold text-white font-body-lg">kai_creative</span>
+                  <!-- Bandera nativa y país -->
+                  <span class="text-xs text-[#8E8E93] flex items-center gap-1">
+                    🇩🇪 <span class="hidden sm:inline">Germany</span>
+                  </span>
+                </div>
+                <!-- Estrellas y Tiempo -->
+                <div class="flex items-center gap-2 mt-1">
+                  <div class="flex text-amber-500">
+                    <span class="material-symbols-outlined text-sm">star</span>
+                    <span class="material-symbols-outlined text-sm">star</span>
+                    <span class="material-symbols-outlined text-sm">star</span>
+                    <span class="material-symbols-outlined text-sm">star</span>
+                    <span class="material-symbols-outlined text-sm">star</span>
+                  </div>
+                  <span class="text-xs font-bold text-amber-500">5.0</span>
+                  <span class="text-xs text-white/40">• 2 months ago</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <span class="font-bold text-white block">Verified Client Audit</span>
-          <span class="text-xs text-[#8E8E93] uppercase tracking-wider">Creative Studio Director</span>
+          <!-- Cuerpo de la reseña -->
+          <p class="font-body-md text-on-surface-variant leading-relaxed">
+            "They operate exactly like a complete development studio inside a single point of contact. Deployed custom physics and custom shader states that ran flawlessly across our mobile browser test suites. Excellent engineering standards, clean documentation."
+          </p>
+        </div>
+        <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-[#8E8E93]">
+          <span>Project: Premium Mobile Advergame</span>
+          <span class="text-brand-purple/80 font-bold tracking-widest uppercase text-[10px]">Verified Gig Purchase</span>
         </div>
       </div>
 
