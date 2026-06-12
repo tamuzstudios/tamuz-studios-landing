@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tamuzstudios.github.io/tamuz-studios-landing/sitemap.xml
